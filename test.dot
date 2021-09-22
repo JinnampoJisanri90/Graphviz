@@ -1,0 +1,217 @@
+// graph {
+//     a -- b;
+//     b -- c;
+// }
+
+// digraph {
+//     A -> B;
+// }
+
+// digraph {
+//     A -> B -> C -> D;
+//     C -> E -> F;
+//     F -> B;
+// }
+
+
+/**************************************
+ * weight
+ **************************************/
+// digraph {
+//     a -> b[label="0.2", weight="0.2"];
+//     a -> c[label="0.4", weight="0.4"];
+//     c -> b[label="0.6", weight="0.6"];
+//     c -> e[label="0.6", weight="0.6"];
+//     e -> e[label="0.1", weight="0.1"];
+//     e -> b[label="0.7", weight="0.7"];
+// }
+
+/**************************************
+ * color
+ **************************************/
+// graph {
+//     a -- b[color=red, penwidth=3.0];
+//     b -- c;            
+//     c -- d[color=red, penwidth=3.0];
+//     d -- e;            
+//     e -- f;            
+//     a -- d;            
+//     b -- d[color=red, penwidth=3.0];
+//     c -- f[color=red, penwidth=3.0];
+// }
+//
+// graph {
+//     a -- b -- d -- c -- f[color=red,penwidth=3.0];
+//     b -- c;
+//     d -- e;
+//     e -- f;
+//     a -- d;
+// }
+
+
+/**************************************
+ * 직교
+ **************************************/
+// digraph Orthogonal {
+//     graph [label="Orthogonal edges", splines=ortho, nodesep=0.8]
+//     node [shape=box]
+//     a->{b c}
+//     b->{d e}
+//     c->{f g}
+// }
+
+
+
+/**************************************
+ * Flow chart
+ **************************************/
+// digraph {
+//     label="How to make sure 'input' is valid"
+// 
+//     start    [shape="box"          , style=rounded];
+//     end      [shape="box"          , style=rounded];
+//     if_valid [shape="diamond"      , style=""];
+//     message  [shape="parallelogram", style=""];
+//     input    [shape="parallelogram", style=""];
+// 
+//     start     -> input;
+//     input     -> if_valid;
+//     if_valid  -> message[label="no"];
+//     if_valid  -> end    [label="yes"];
+//     message   -> input;
+// }
+
+/**************************************
+ * Since all node mentioning is declarative,            
+ * you can easily put labels in a different section than
+ * the structure of your graph:                         
+ **************************************/
+// * digraph {
+//     label="How to make sure 'input' is valid"
+// 
+//     start    [shape="box"          , style=rounded];
+//     end      [shape="box"          , style=rounded];
+//     if_valid [shape="diamond"      , style=""];
+//     message  [shape="parallelogram", style=""]
+//     input    [shape="parallelogram", style=""]
+// 
+//     start    -> input;
+//     input    -> if_valid;
+//     if_valid -> message[label="no"];
+//     if_valid -> end    [label="yes"];
+//     message  -> input;
+// 
+//     if_valid [label="Is input\nvalid?"]
+//     message  [label="Show\nmessage"]
+//     input    [label="Prompt\nfor input"]
+// }
+
+/**************************************
+ * Moreover, you can use the node keyword  
+ * to declare attributes for sets of nodes:
+ **************************************/
+// digraph {
+//     label="How to make sure 'input' is valid";
+// 
+//     node[shape="box"          , style="rounded"]
+//        start; end;
+//       
+//     node[shape="parallelogram", style=""]
+//        message; input;
+//
+//     node[shape="diamond"      , style=""]
+//        if_valid;
+// 
+//     start    -> input;
+//     input    -> if_valid;
+//     if_valid -> message [label="no"];
+//     if_valid -> end     [label="yes"];
+//     message  -> input;     
+// 
+//     if_valid [label="Is input\nvalid?"]
+//     message  [label="Show\nmessage"]
+//     input    [label="Prompt\nfor input"]
+// }
+
+
+/**************************************
+ * You can use ranking of nodes                                               
+ * to make sure nodes are ranked equally so they are put next to each other: 
+ **************************************/
+// digraph {
+//     label="How to make sure 'input' is valid";
+//     node[shape="box"          , style="rounded"]
+//        start; end;
+//     node[shape="parallelogram", style=""]
+//        message; input;
+//     node[shape="diamond"      , style=""]
+//        if_valid;
+//     start    -> input;
+//     input    -> if_valid;
+//     if_valid -> message [label="no"];
+//     if_valid -> end     [label="yes"];
+//     message  -> input;     
+//     {rank=same; message input}
+// }
+
+
+                            
+/**************************************
+ * subgraph
+ **************************************/
+// digraph {
+//     subgraph cluster_0 {
+//         label="Subgraph A";
+//         a -> b;
+//         b -> c;
+//         c -> d;
+//     }
+//     subgraph cluster_1 {
+//         label="Subgraph B";
+//         a -> f;
+//         f -> c;
+//     }
+// }
+
+/**************************************
+ * subgraph + splines=line;
+ **************************************/
+// graph {
+//     splines=line;
+//     subgraph cluster_0 {
+//         label="Subgraph A";
+//         a; b; c
+//     }
+//     subgraph cluster_1 {
+//         label="Subgraph B";
+//         d; e;
+//     }
+//     a -- e;
+//     a -- d;
+//     b -- d;
+//     b -- e;
+//     c -- d;
+//     c -- e;
+// }
+                            
+// graph {
+//     rankdir=LR; // Left to Right, instead of Top to Bottom
+//     a -- { b c d };
+//     b -- { c e };
+//     c -- { e f };
+// }
+//
+// graph {
+//     rankdir=LR;
+//     a -- { b c d }; b -- { c e }; c -- { e f }; d -- { f g }; e -- h;
+//     f -- { h i j g }; g -- k; h -- { o l }; i -- { l m j }; j -- { m n k };
+//     k -- { n r }; l -- { o m }; m -- { o p n }; n -- { q r };
+//     o -- { s p }; p -- { s t q }; q -- { t r }; r -- t; s -- z; t -- z;
+//     { rank=same; b, c, d }
+//     { rank=same; e, f, g }
+//     { rank=same; h, i, j, k }
+//     { rank=same; l, m, n }
+//     { rank=same; o, p, q, r }
+//     { rank=same; s, t }
+// }
+

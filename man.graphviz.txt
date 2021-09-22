@@ -1,0 +1,17 @@
+Tutorial       http://graphs.grevian.org/example | GraphViz Examples and Tutorial
+Tutorial       http://melp.nl/2013/08/flow-charts-in-code-enter-graphviz-and-the-dot-language/ | Flow charts in code: enter graphviz and the “dot” language
+Box & record   https://renenyffenegger.ch/notes/tools/Graphviz/examples/index | Graphviz (dot) examples
+shape=record   https://sketchviz.com/graphviz-examples | Graphviz Examples and Tutorial
+Class diagram  https://www.worthe-it.co.za/blog/2017-09-19-quick-introduction-to-graphviz.html | A Quick Introduction to Graphviz
+Tutorial       https://www.tonyballantyne.com/graphs.html | Drawing Graphs using Dot and Graphviz
+
+Layout engine  https://manpages.debian.org/jessie/graphviz/circo.1.en.html | circo(1) — graphviz — Debian jessie — Debian Manpages
+Referential    https://www.graphviz.org/doc/info/attrs.html#a:shape | Attributes | Graphviz
+Referential    https://www.graphviz.org/doc/info/shapes.html | Node Shapes | Graphviz
+Referential    https://www.graphviz.org/pdf/dotguide.pdf | https://www.graphviz.org/pdf/dotguide.pdf
+Referential    http://rich-iannone.github.io/DiagrammeR/graphviz_and_mermaid.html | DiagrammeR - Documentation
+Referential    http://www.graphviz.org/doc/info/shapes.html | Node Shapes | Graphviz
+
+Python         https://graphviz.readthedocs.io/en/stable/ | Graphviz — graphviz 0.17 documentation
+Python         https://graphviz.readthedocs.io/en/stable/examples.html | Examples — graphviz 0.17 documentation
+
